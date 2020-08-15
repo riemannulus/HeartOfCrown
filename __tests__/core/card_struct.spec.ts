@@ -1,5 +1,5 @@
-import { Card } from './card_models';
-import { CardBuffer } from './card_struct';
+import { Card } from '../../src/core/card_models';
+import { CardBuffer } from '../../src/core/card_struct';
 
 describe('CardStruct', () => {
   describe('CardBuffer', () => {
