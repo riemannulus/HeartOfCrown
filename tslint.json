@@ -1,0 +1,4 @@
+{
+  "relesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint:latest", "tslint-config-prettier"]
+}
