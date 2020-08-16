@@ -19,6 +19,16 @@ export class CardBuffer {
     }
   }
 
+  public getCards(): Card[] {
+    return this.cards;
+  }
+
+  public drawTo(target: CardBuffer) {
+    const card: Card = this.cards.pop();
+    target.receive(card);
+    return card;
+  }
+
   private searchByIndex(index: number): Card {
     return this.cards[index];
   }
