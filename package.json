@@ -1,15 +1,10 @@
 {
-  "name": "ts-jest-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate for TypeScript + Jest",
-  "repository": "https://github.com/utatatata/ts-jest-boilerplate.git",
+  "name": "Heart-Of-Crown",
+  "version": "0.0.1",
+  "description": "Heart of Crown",
+  "repository": "https://github.com/riemannulus/HeartOfCrown",
   "license": "MIT",
-  "author": "utakuma <utatatata.kuma@gmail.com>",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "bin": {
-    "ts-jest-boilerplate": "./bin/ts-jest-boilerplate"
-  },
+  "author": "Lee, Suho <riemannulus@hitagi.moe>",
   "scripts": {
     "build": "tsc -b",
     "clean": "rimraf lib",
