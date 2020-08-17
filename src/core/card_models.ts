@@ -37,9 +37,25 @@ export abstract class Card {
  * and get a score by registering it.
  */
 export class Succession {
-  private readonly _successionPoint: number;
+
+  constructor(
+    // FIXME: using readonly here.
+    protected _successionPoint: number
+  ) {}
+
+  get successionPoint(): number {
+    return this._successionPoint;
+  }
 }
 
 export class Land {
-  private readonly _value: number;
+
+  constructor(
+    // FIXME: using readonly here.
+    protected _value: number
+  ) {}
+
+  get value(): number {
+    return this._value;
+  }
 }
