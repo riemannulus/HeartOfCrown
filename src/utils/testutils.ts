@@ -1,5 +1,5 @@
-import { Card } from '../../src/core/card_models';
-import { CardBuffer } from '../../src/core/card_struct';
+import { Card } from '../core/card_models';
+import { CardBuffer } from '../core/card_struct';
 
 export const makeBuffer = (cards: Array<Card>): CardBuffer => {
   const buffer = new CardBuffer();

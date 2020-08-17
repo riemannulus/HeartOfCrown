@@ -1,16 +1,15 @@
 import { Card } from '../../src/core/card_models';
 import { CardBuffer } from '../../src/core/card_struct';
-// @ts-ignore
-import { bufferHasCards, makeBuffer } from '../utils/testutils';
+import { bufferHasCards, makeBuffer } from '../../src/utils/testutils';
 
 describe('CardStruct', () => {
   describe('CardBuffer', () => {
     test('receive card', () => {
       // Create test data
       const buffer = new CardBuffer();
-      const village = new Card('Farming Village');
-      const city = new Card('City');
-      const largeCity = new Card('Large city');
+      const village = new Card('Farming Village', 1);
+      const city = new Card('City', 3);
+      const largeCity = new Card('Large city', 6);
 
       // Append card to CardBuffer
       buffer.receive(village);
@@ -24,9 +23,9 @@ describe('CardStruct', () => {
     });
 
     test('draw to another CardBuffer', () => {
-      const village = new Card('Farming Village');
-      const city = new Card('City');
-      const largeCity = new Card('Large city');
+      const village = new Card('Farming Village', 1);
+      const city = new Card('City', 3);
+      const largeCity = new Card('Large city', 6);
       const source = makeBuffer([village, city, largeCity]);
       const target = new CardBuffer();
 
