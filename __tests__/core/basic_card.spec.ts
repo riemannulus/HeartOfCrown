@@ -1,4 +1,5 @@
 import { ApprenticeMaid, FarmingVillage, ImperialCapital } from '../../src/core/basic_card';
+import { Player } from '../../src/core/player';
 
 describe('Basic Card', () => {
   test('isSingleton', () => {
@@ -24,6 +25,12 @@ describe('Basic Card', () => {
       expect(apprenticeMaid.supplyCount(3)).toBe(9);
       expect(apprenticeMaid.supplyCount(4)).toBe(12);
     });
+    test('enroll card', () => {
+      const player = new Player();
+      const apprenticeMaid = new ApprenticeMaid();
+      apprenticeMaid.onEnroll(player);
+      expect(player.currentSuccessionPoint).toBe(-2);
+    });
   });
   describe('Farming Village', () => {
     test('name', () => {
@@ -43,6 +50,12 @@ describe('Basic Card', () => {
       expect(farmingVillage.supplyCount(2)).toBe(14);
       expect(farmingVillage.supplyCount(3)).toBe(21);
       expect(farmingVillage.supplyCount(4)).toBe(28);
+    });
+    test('play card', () => {
+      const player = new Player();
+      const farmingVillage = new FarmingVillage();
+      farmingVillage.onPlay(player);
+      expect(player.turn.gold).toBe(1);
     });
   });
   describe('Imperial Capital', () => {
@@ -67,6 +80,18 @@ describe('Basic Card', () => {
       expect(imperialCapital.supplyCount(2)).toBe(1);
       expect(imperialCapital.supplyCount(3)).toBe(1);
       expect(imperialCapital.supplyCount(4)).toBe(1);
+    });
+    test('enroll card', () => {
+      const player = new Player();
+      const imperialCapital = new ImperialCapital();
+      imperialCapital.onEnroll(player);
+      expect(player.currentSuccessionPoint).toBe(8);
+    });
+    test('play card', () => {
+      const player = new Player();
+      const imperialCapital = new ImperialCapital();
+      imperialCapital.onPlay(player);
+      expect(player.turn.gold).toBe(5);
     });
   });
 });

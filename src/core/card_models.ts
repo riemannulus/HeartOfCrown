@@ -18,9 +18,9 @@ export abstract class Card {
     return 5;
   }
 
-  public abstract async onGain(player: Player): Promise<void>;
+  public async onGain(player: Player): Promise<void> {};
 
-  public abstract async onPlay(player: Player): Promise<void>;
+  public async onPlay(player: Player): Promise<void> {};
 
   get name(): string {
     return this._name;
@@ -33,7 +33,7 @@ export abstract class Card {
 
 /**
  * The succession card is used to raise the succession point.
- * You can register this card with your princess in phase 2
+ * You can enroll this card with your princess in phase 2
  * and get a score by registering it.
  */
 export class Succession {
@@ -46,8 +46,17 @@ export class Succession {
   get successionPoint(): number {
     return this._successionPoint;
   }
+
+  async onEnroll(player: Player): Promise<void> {
+    player.currentSuccessionPoint += this._successionPoint;
+    return Promise.resolve();
+  }
 }
 
+/**
+ * The land card is used to earn gold on your turn.
+ * You can play this card in phase 1 and get a gold.
+ */
 export class Land {
 
   constructor(
@@ -57,5 +66,10 @@ export class Land {
 
   get value(): number {
     return this._value;
+  }
+
+  async onPlay(player: Player): Promise<void> {
+    player.turn.gold += this._value;
+    return Promise.resolve();
   }
 }
