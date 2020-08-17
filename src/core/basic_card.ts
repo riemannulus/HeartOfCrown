@@ -50,3 +50,28 @@ export class FarmingVillage extends Card {
     return Promise.resolve(undefined);
   }
 }
+
+export interface ImperialCapital extends Succession, Land {}
+
+@singleton
+export class ImperialCapital extends Card {
+  @use(Succession, Land) public this;
+
+  constructor() {
+    super('Imperial Capital', 11);
+    this._value = 5;
+    this._successionPoint = 8;
+  }
+
+  public supplyCount(playerCount: number): number {
+    return 1;
+  }
+
+  async onGain(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
+  }
+
+  async onPlay(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
+  }
+}

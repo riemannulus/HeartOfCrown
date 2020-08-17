@@ -1,4 +1,4 @@
-import { ApprenticeMaid, FarmingVillage } from '../../src/core/basic_card';
+import { ApprenticeMaid, FarmingVillage, ImperialCapital } from '../../src/core/basic_card';
 
 describe('Basic Card', () => {
   test('isSingleton', () => {
@@ -43,6 +43,30 @@ describe('Basic Card', () => {
       expect(farmingVillage.supplyCount(2)).toBe(14);
       expect(farmingVillage.supplyCount(3)).toBe(21);
       expect(farmingVillage.supplyCount(4)).toBe(28);
+    });
+  });
+  describe('Imperial Capital', () => {
+    test('name', () => {
+      const imperialCapital = new ImperialCapital();
+      expect(imperialCapital.name).toBe("Imperial Capital");
+    });
+    test('cost', () => {
+      const imperialCapital = new ImperialCapital();
+      expect(imperialCapital.cost).toBe(11);
+    });
+    test('value', () => {
+      const imperialCapital = new ImperialCapital();
+      expect(imperialCapital.value).toBe(5);
+    });
+    test('succession point', () => {
+      const imperialCapital = new ImperialCapital();
+      expect(imperialCapital.successionPoint).toBe(8);
+    });
+    test('supply count', () => {
+      const imperialCapital = new ImperialCapital();
+      expect(imperialCapital.supplyCount(2)).toBe(1);
+      expect(imperialCapital.supplyCount(3)).toBe(1);
+      expect(imperialCapital.supplyCount(4)).toBe(1);
     });
   });
 });
