@@ -17,14 +17,6 @@ export class ApprenticeMaid extends Card {
   public supplyCount(playerCount: number): number {
     return 3 * playerCount;
   }
-
-  async onGain(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
-  }
-
-  async onPlay(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
-  }
 }
 
 export interface FarmingVillage extends Land {}
@@ -40,14 +32,6 @@ export class FarmingVillage extends Card {
 
   public supplyCount(playerCount: number): number {
     return 7 * playerCount;
-  }
-
-  async onGain(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
-  }
-
-  async onPlay(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
   }
 }
 
@@ -65,13 +49,5 @@ export class ImperialCapital extends Card {
 
   public supplyCount(playerCount: number): number {
     return 1;
-  }
-
-  async onGain(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
-  }
-
-  async onPlay(player: Player): Promise<void> {
-    return Promise.resolve(undefined);
   }
 }
