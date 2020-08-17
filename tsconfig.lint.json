@@ -1,4 +1,7 @@
 {
   "extends": "./tsconfig.common.json",
-  "include": ["src", "test"]
+  "include": ["src", "test"],
+  "rules": {
+    "max-classes-per-file": [true, 5, "exclude-class-expressions"]
+  }
 }

@@ -19,6 +19,6 @@
     "strictNullChecks": true,
     "removeComments": "true",
     "types": ["node"],
-    "lib": ["es2018"]
+    "lib": ["es2018"],
   }
 }

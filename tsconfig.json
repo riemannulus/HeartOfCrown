@@ -1,8 +1,12 @@
 {
   "extends": "./tsconfig.common.json",
   "compilerOptions": {
+    "target": "es2018",
+    "experimentalDecorators": true,
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
+    "module": "commonjs",
+    "esModuleInterop": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]
