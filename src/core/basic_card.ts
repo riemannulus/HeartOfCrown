@@ -1,6 +1,7 @@
 import { use } from 'typescript-mix';
 import { Card, Land, Succession } from './card_models';
 import { singleton } from './singleton';
+import { Player } from './player';
 
 @singleton
 export class ApprenticeMaid extends Card {
@@ -17,6 +18,14 @@ export class ApprenticeMaid extends Card {
 
   get successionPoint(): number {
     return this._successionPoint;
+  }
+
+  async onGain(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
+  }
+
+  async onPlay(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
   }
 }
 
@@ -35,5 +44,13 @@ export class FarmingVillage extends Card {
 
   get value(): number {
     return this._value;
+  }
+
+  async onGain(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
+  }
+
+  async onPlay(player: Player): Promise<void> {
+    return Promise.resolve(undefined);
   }
 }

@@ -1,8 +1,10 @@
-export class Card {
+import { Player } from './player';
+
+export abstract class Card {
   private readonly _name: string;
   private readonly _cost: number;
 
-  constructor(name: string, cost: number) {
+  protected constructor(name: string, cost: number) {
     this._name = name;
     this._cost = cost;
   }
@@ -15,6 +17,10 @@ export class Card {
   public supplyCount(playerCount: number): number {
     return 5;
   }
+
+  public abstract async onGain(player: Player): Promise<void>;
+
+  public abstract async onPlay(player: Player): Promise<void>;
 
   get name(): string {
     return this._name;
