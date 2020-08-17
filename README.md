@@ -1,5 +1,6 @@
 # Heart Of Crown
 ![CI](https://github.com/riemannulus/HeartOfCrown/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/riemannulus/HeartOfCrown/branch/main/graph/badge.svg)](https://codecov.io/gh/riemannulus/HeartOfCrown)
 
 Heart of Crown is a deck-building card game.
 Each player starts with the same deck, strengthens that deck with strategic cards,
