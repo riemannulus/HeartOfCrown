@@ -1,5 +1,5 @@
 import { Card } from '../../src/core/card_models';
-import { CardBuffer } from '../../src/core/card_struct';
+import { CardBuffer, InPlayBuffer } from '../../src/core/card_struct';
 import { bufferHasCards, makeBuffer } from '../../src/utils/testutils';
 import { ApprenticeMaid, FarmingVillage } from '../../src/core/basic_card';
 
@@ -50,6 +50,26 @@ describe('CardStruct', () => {
 
       const card4: Card = source.drawTo(target);
       expect(card4).toBeUndefined();
+    });
+  });
+  describe('InPlayBuffer', () =>{
+    it('cannot be discard', () => {
+      // Fixture
+      const inPlayBuffer = new InPlayBuffer();
+
+      // Do
+      expect(() => { inPlayBuffer.discard(new FarmingVillage()) })
+        .toThrowError(new Error('Cannot discard from InPlayBuffer'));
+    });
+
+    it('cannot be draw other buffer', () => {
+      // Fixture
+      const inPlayBuffer = new InPlayBuffer();
+      const hand = new CardBuffer();
+
+      // Do
+      expect(() => { inPlayBuffer.drawTo(hand) })
+        .toThrowError(new Error('Cannot draw to other buffer on InPlayBuffer'));
     });
   });
 });
