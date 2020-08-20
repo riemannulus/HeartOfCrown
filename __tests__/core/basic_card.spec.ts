@@ -51,10 +51,10 @@ describe('Basic Card', () => {
       expect(farmingVillage.supplyCount(3)).toBe(21);
       expect(farmingVillage.supplyCount(4)).toBe(28);
     });
-    test('play card', () => {
+    test('play card', async () => {
       const player = new Player();
       const farmingVillage = new FarmingVillage();
-      farmingVillage.onPlay(player);
+      await farmingVillage.onPlay(player);
       expect(player.turn.gold).toBe(1);
     });
   });
@@ -81,16 +81,16 @@ describe('Basic Card', () => {
       expect(imperialCapital.supplyCount(3)).toBe(1);
       expect(imperialCapital.supplyCount(4)).toBe(1);
     });
-    test('enroll card', () => {
+    test('enroll card', async () => {
       const player = new Player();
       const imperialCapital = new ImperialCapital();
-      imperialCapital.onEnroll(player);
+      await imperialCapital.onEnroll(player);
       expect(player.currentSuccessionPoint).toBe(8);
     });
-    test('play card', () => {
+    test('play card', async () => {
       const player = new Player();
       const imperialCapital = new ImperialCapital();
-      imperialCapital.onPlay(player);
+      await imperialCapital.onPlay(player);
       expect(player.turn.gold).toBe(5);
     });
   });
