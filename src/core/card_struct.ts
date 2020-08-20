@@ -11,6 +11,20 @@ export class CardBuffer {
     this.cards.push(card);
   }
 
+  public shuffle() {
+    this.cards.sort(function(){return 0.5-Math.random()});
+  }
+
+  public size() {
+    return this.cards.length;
+  }
+
+  public discard(card: Card) {
+    const idx = this.cards.indexOf(card);
+    if (idx > -1) this.cards.splice(idx, 1);
+    else throw new Error('Cannot discard that are not in the buffer.');
+  }
+
   public search(index: number | string): Card {
     if (typeof index === 'number') {
       return this.searchByIndex(index);
