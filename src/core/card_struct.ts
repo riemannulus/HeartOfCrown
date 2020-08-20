@@ -23,7 +23,7 @@ export class CardBuffer {
     return this.cards;
   }
 
-  public drawTo(target: CardBuffer) {
+  public drawTo(target: CardBuffer): Card {
     const card: Card = this.cards.pop();
     target.receive(card);
     return card;
