@@ -21,8 +21,8 @@ export class CardBuffer {
 
   public discard(card: Card) {
     const idx = this.cards.indexOf(card);
-    if (idx > -1) this.cards.splice(idx, 1)
-    else throw Error('cannot discard that are not in the buffer.')
+    if (idx > -1) this.cards.splice(idx, 1);
+    else throw new Error('Cannot discard that are not in the buffer.');
   }
 
   public search(index: number | string): Card {

@@ -1,5 +1,6 @@
 import { Player } from '../../src/core/player';
 import { ApprenticeMaid, FarmingVillage } from '../../src/core/basic_card';
+import { extendConfigurationFile } from 'tslint/lib/configuration';
 
 describe('Player', () => {
   describe('Turn', () => {
@@ -42,10 +43,19 @@ describe('Player', () => {
       expect(player.hand.size()).toBe(5);
 
       // Do
-      player.playCard(new FarmingVillage());
+      await player.playCard(new FarmingVillage());
 
       // After
       expect(player.hand.size()).toBe(4);
     });
+    it('cannot be playing card without player\'s hand', async () => {
+      // Fixture
+      const player = new Player();
+
+      // Do
+      await expect(player.playCard(new FarmingVillage()))
+        .rejects
+        .toThrow(new Error('Cannot discard that are not in the buffer.'))
+    })
   });
 });
