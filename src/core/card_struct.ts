@@ -12,7 +12,9 @@ export class CardBuffer {
   }
 
   public shuffle() {
-    this.cards.sort(function(){return 0.5-Math.random()});
+    this.cards.sort(function() {
+      return 0.5 - Math.random();
+    });
   }
 
   public size() {

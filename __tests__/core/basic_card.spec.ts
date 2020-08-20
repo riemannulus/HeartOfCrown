@@ -1,4 +1,8 @@
-import { ApprenticeMaid, FarmingVillage, ImperialCapital } from '../../src/core/basic_card';
+import {
+  ApprenticeMaid,
+  FarmingVillage,
+  ImperialCapital
+} from '../../src/core/basic_card';
 import { Player } from '../../src/core/player';
 import { Land, Succession } from '../../src/core/card_models';
 import { hasMixin } from 'ts-mixer';
@@ -11,7 +15,7 @@ describe('Basic Card', () => {
   describe('Apprentice Maid', () => {
     test('name', () => {
       const apprenticeMaid = new ApprenticeMaid();
-      expect(apprenticeMaid.name).toBe("Apprentice Maid");
+      expect(apprenticeMaid.name).toBe('Apprentice Maid');
     });
     test('cost', () => {
       const apprenticeMaid = new ApprenticeMaid();
@@ -24,7 +28,7 @@ describe('Basic Card', () => {
     test('type', () => {
       const apprenticeMaid = new ApprenticeMaid();
       const isLand = hasMixin(apprenticeMaid, Land);
-      const isSuccession = hasMixin(apprenticeMaid, Succession)
+      const isSuccession = hasMixin(apprenticeMaid, Succession);
       expect(isSuccession).toBeTruthy();
       expect(isLand).toBeFalsy();
     });
@@ -44,7 +48,7 @@ describe('Basic Card', () => {
   describe('Farming Village', () => {
     test('name', () => {
       const farmingVillage = new FarmingVillage();
-      expect(farmingVillage.name).toBe("Farming Village");
+      expect(farmingVillage.name).toBe('Farming Village');
     });
     test('cost', () => {
       const farmingVillage = new FarmingVillage();
@@ -57,7 +61,7 @@ describe('Basic Card', () => {
     test('type', () => {
       const farmingVillage = new FarmingVillage();
       const isLand = hasMixin(farmingVillage, Land);
-      const isSuccession = hasMixin(farmingVillage, Succession)
+      const isSuccession = hasMixin(farmingVillage, Succession);
       expect(isLand).toBeTruthy();
       expect(isSuccession).toBeFalsy();
     });
@@ -77,7 +81,7 @@ describe('Basic Card', () => {
   describe('Imperial Capital', () => {
     test('name', () => {
       const imperialCapital = new ImperialCapital();
-      expect(imperialCapital.name).toBe("Imperial Capital");
+      expect(imperialCapital.name).toBe('Imperial Capital');
     });
     test('cost', () => {
       const imperialCapital = new ImperialCapital();
@@ -94,7 +98,7 @@ describe('Basic Card', () => {
     test('type', () => {
       const imperialCapital = new ImperialCapital();
       const isLand = hasMixin(imperialCapital, Land);
-      const isSuccession = hasMixin(imperialCapital, Succession)
+      const isSuccession = hasMixin(imperialCapital, Succession);
       expect(isLand).toBeTruthy();
       expect(isSuccession).toBeTruthy();
     });

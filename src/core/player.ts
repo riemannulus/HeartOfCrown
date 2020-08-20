@@ -13,7 +13,7 @@ const initDeck = [
   new FarmingVillage(),
   new FarmingVillage(),
   new FarmingVillage(),
-  new FarmingVillage(),
+  new FarmingVillage()
 ];
 
 export class Player {
@@ -38,15 +38,15 @@ export class Player {
   }
 
   public async playCard(card: Card, from: CardBuffer = null) {
-    if(from === null) from = this._hand;
+    if (from === null) from = this._hand;
     this._hand.discard(card);
     this._turn.action -= 1;
     await card.onPlay(this);
   }
 
   public async playEnroll(card: Card, from: CardBuffer = null) {
-    if(from === null) from = this._hand;
-    await (<Succession><unknown>card).onEnroll(this);
+    if (from === null) from = this._hand;
+    await (<Succession>(<unknown>card)).onEnroll(this);
   }
 
   get currentSuccessionPoint(): number {
@@ -64,5 +64,4 @@ export class Player {
   get hand(): CardBuffer {
     return this._hand;
   }
-
 }

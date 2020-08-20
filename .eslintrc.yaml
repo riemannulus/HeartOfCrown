@@ -12,3 +12,5 @@ parserOptions:
     - ./jest.config.js
 plugins:
   - '@typescript-eslint'
+rules:
+  '@typescript-eslint/explicit-module-boundary-types': 'off'

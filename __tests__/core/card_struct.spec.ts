@@ -52,14 +52,15 @@ describe('CardStruct', () => {
       expect(card4).toBeUndefined();
     });
   });
-  describe('InPlayBuffer', () =>{
+  describe('InPlayBuffer', () => {
     it('cannot be discard', () => {
       // Fixture
       const inPlayBuffer = new InPlayBuffer();
 
       // Do
-      expect(() => { inPlayBuffer.discard(new FarmingVillage()) })
-        .toThrowError(new Error('Cannot discard from InPlayBuffer'));
+      expect(() => {
+        inPlayBuffer.discard(new FarmingVillage());
+      }).toThrowError(new Error('Cannot discard from InPlayBuffer'));
     });
 
     it('cannot be draw other buffer', () => {
@@ -68,8 +69,9 @@ describe('CardStruct', () => {
       const hand = new CardBuffer();
 
       // Do
-      expect(() => { inPlayBuffer.drawTo(hand) })
-        .toThrowError(new Error('Cannot draw to other buffer on InPlayBuffer'));
+      expect(() => {
+        inPlayBuffer.drawTo(hand);
+      }).toThrowError(new Error('Cannot draw to other buffer on InPlayBuffer'));
     });
   });
 });

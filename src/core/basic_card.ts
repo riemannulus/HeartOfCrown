@@ -5,7 +5,6 @@ import { Mixin } from 'ts-mixer';
 
 @singleton
 export class ApprenticeMaid extends Mixin(Card, Succession) {
-
   constructor() {
     super('Apprentice Maid', 2, 0);
     this._successionPoint = -2;
@@ -18,7 +17,6 @@ export class ApprenticeMaid extends Mixin(Card, Succession) {
 
 @singleton
 export class FarmingVillage extends Mixin(Card, Land) {
-
   constructor() {
     super('Farming Village', 1, 1);
     this._value = 1;
@@ -37,7 +35,6 @@ export class FarmingVillage extends Mixin(Card, Land) {
 
 @singleton
 export class ImperialCapital extends Mixin(Card, Land, Succession) {
-
   constructor() {
     super('Imperial Capital', 11, 1);
     this._value = 5;
