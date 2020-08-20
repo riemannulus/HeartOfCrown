@@ -17,6 +17,7 @@ export class Player {
 
   public async playCard(card: Card, from: CardBuffer = null) {
     if(from === null) from = this._hand;
+    this._hand.discard(card);
     this._turn.action -= 1;
     await card.onPlay(this);
   }
