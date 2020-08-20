@@ -1,5 +1,5 @@
 import { Turn } from './turn';
-import { Card } from './card_models';
+import { Card, Succession } from './card_models';
 import { CardBuffer } from './card_struct';
 
 export class Player {
@@ -19,6 +19,11 @@ export class Player {
     if(from === null) from = this._hand;
     this._turn.action -= 1;
     await card.onPlay(this);
+  }
+
+  public async playEnroll(card: Card, from: CardBuffer = null) {
+    if(from === null) from = this._hand;
+    await (<Succession><unknown>card).onEnroll(this);
   }
 
   get currentSuccessionPoint(): number {
