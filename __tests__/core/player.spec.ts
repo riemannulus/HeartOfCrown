@@ -6,6 +6,7 @@ describe('Player', () => {
     it('should be 1 action point left after play', async () => {
       const player = new Player();
       const village = new FarmingVillage();
+      player.hand.receive(village);
 
       expect(player.turn.action).toBe(1);
       await player.playCard(village);
