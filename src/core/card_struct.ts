@@ -1,7 +1,7 @@
 import { Card } from './card_models';
 
 export class CardBuffer {
-  private readonly cards: Card[];
+  protected readonly cards: Card[];
 
   constructor() {
     this.cards = [];
@@ -43,5 +43,15 @@ export class CardBuffer {
 
   private searchByIndex(index: number): Card {
     return this.cards[index];
+  }
+}
+
+export class InPlayBuffer extends CardBuffer {
+  discard(card: Card) {
+    throw new Error('Cannot discard from InPlayBuffer');
+  }
+
+  drawTo(target: CardBuffer): Card {
+    throw new Error('Cannot draw to other buffer on InPlayBuffer');
   }
 }
