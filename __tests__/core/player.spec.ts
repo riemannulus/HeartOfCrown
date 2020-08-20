@@ -13,13 +13,38 @@ describe('Player', () => {
       expect(player.turn.action).toBe(1);
     });
     it('should be left -2 succession point after enroll', async () => {
+      // Fixture
       const player = new Player();
       const maid = new ApprenticeMaid();
 
+      // Before
       expect(player.currentSuccessionPoint).toBe(0);
+
+      // Do
       await player.playEnroll(maid);
 
+      // After
       expect(player.currentSuccessionPoint).toBe(-2);
+    });
+  });
+  describe('Hand', () => {
+    it('should be left 4 card after play', async () => {
+      // Fixture
+      const player = new Player();
+      player.hand.receive(new ApprenticeMaid());
+      player.hand.receive(new ApprenticeMaid());
+      player.hand.receive(new FarmingVillage());
+      player.hand.receive(new FarmingVillage());
+      player.hand.receive(new FarmingVillage());
+
+      // Before
+      expect(player.hand.size()).toBe(5);
+
+      // Do
+      player.playCard(new FarmingVillage());
+
+      // After
+      expect(player.hand.size()).toBe(4);
     });
   });
 });
