@@ -28,8 +28,6 @@ export class CardBuffer {
   public search(index: number | string): Card {
     if (typeof index === 'number') {
       return this.searchByIndex(index);
-    } else {
-      return this.searchByName(index);
     }
   }
 
@@ -45,9 +43,5 @@ export class CardBuffer {
 
   private searchByIndex(index: number): Card {
     return this.cards[index];
-  }
-
-  private searchByName(index: string): Card {
-    return undefined;
   }
 }
