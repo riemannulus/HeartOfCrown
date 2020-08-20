@@ -1,5 +1,5 @@
 import { Player } from '../../src/core/player';
-import { FarmingVillage } from '../../src/core/basic_card';
+import { ApprenticeMaid, FarmingVillage } from '../../src/core/basic_card';
 
 describe('Player', () => {
   describe('Turn', () => {
@@ -11,6 +11,15 @@ describe('Player', () => {
       await player.playCard(village);
 
       expect(player.turn.action).toBe(1);
+    });
+    it('should be left -2 succession point after enroll', async () => {
+      const player = new Player();
+      const maid = new ApprenticeMaid();
+
+      expect(player.currentSuccessionPoint).toBe(0);
+      await player.playEnroll(maid);
+
+      expect(player.currentSuccessionPoint).toBe(-2);
     });
   });
 });
