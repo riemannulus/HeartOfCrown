@@ -1,5 +1,7 @@
 import { ApprenticeMaid, FarmingVillage, ImperialCapital } from '../../src/core/basic_card';
 import { Player } from '../../src/core/player';
+import { Land, Succession } from '../../src/core/card_models';
+import { hasMixin } from 'ts-mixer';
 
 describe('Basic Card', () => {
   test('isSingleton', () => {
@@ -18,6 +20,13 @@ describe('Basic Card', () => {
     test('succession point', () => {
       const apprenticeMaid = new ApprenticeMaid();
       expect(apprenticeMaid.successionPoint).toBe(-2);
+    });
+    test('type', () => {
+      const apprenticeMaid = new ApprenticeMaid();
+      const isLand = hasMixin(apprenticeMaid, Land);
+      const isSuccession = hasMixin(apprenticeMaid, Succession)
+      expect(isSuccession).toBeTruthy();
+      expect(isLand).toBeFalsy();
     });
     test('supply count', () => {
       const apprenticeMaid = new ApprenticeMaid();
@@ -44,6 +53,13 @@ describe('Basic Card', () => {
     test('value', () => {
       const farmingVillage = new FarmingVillage();
       expect(farmingVillage.value).toBe(1);
+    });
+    test('type', () => {
+      const farmingVillage = new FarmingVillage();
+      const isLand = hasMixin(farmingVillage, Land);
+      const isSuccession = hasMixin(farmingVillage, Succession)
+      expect(isLand).toBeTruthy();
+      expect(isSuccession).toBeFalsy();
     });
     test('supply count', () => {
       const farmingVillage = new FarmingVillage();
@@ -74,6 +90,13 @@ describe('Basic Card', () => {
     test('succession point', () => {
       const imperialCapital = new ImperialCapital();
       expect(imperialCapital.successionPoint).toBe(8);
+    });
+    test('type', () => {
+      const imperialCapital = new ImperialCapital();
+      const isLand = hasMixin(imperialCapital, Land);
+      const isSuccession = hasMixin(imperialCapital, Succession)
+      expect(isLand).toBeTruthy();
+      expect(isSuccession).toBeTruthy();
     });
     test('supply count', () => {
       const imperialCapital = new ImperialCapital();
