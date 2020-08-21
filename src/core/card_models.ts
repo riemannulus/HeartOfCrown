@@ -38,11 +38,10 @@ export abstract class Card {
  * and get a score by registering it.
  */
 export class Succession {
+  // FIXME: using readonly here.
+  protected _successionPoint: number;
 
-  constructor(
-    // FIXME: using readonly here.
-    protected _successionPoint: number
-  ) {}
+  constructor() {}
 
   get successionPoint(): number {
     return this._successionPoint;
@@ -59,11 +58,10 @@ export class Succession {
  * You can play this card in phase 1 and get a gold.
  */
 export class Land {
+  // FIXME: using readonly here.
+  protected _value: number;
 
-  constructor(
-    // FIXME: using readonly here.
-    protected _value: number
-  ) {}
+  constructor() {}
 
   get value(): number {
     return this._value;

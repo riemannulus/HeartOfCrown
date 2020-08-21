@@ -1,7 +1,7 @@
 import { Card } from './card_models';
 
 export class CardBuffer {
-  private readonly cards: Card[];
+  protected readonly cards: Card[];
 
   constructor() {
     this.cards = [];
@@ -11,11 +11,23 @@ export class CardBuffer {
     this.cards.push(card);
   }
 
+  public shuffle() {
+    this.cards.sort(function(){return 0.5-Math.random()});
+  }
+
+  public size() {
+    return this.cards.length;
+  }
+
+  public discard(card: Card) {
+    const idx = this.cards.indexOf(card);
+    if (idx > -1) this.cards.splice(idx, 1);
+    else throw new Error('Cannot discard that are not in the buffer.');
+  }
+
   public search(index: number | string): Card {
     if (typeof index === 'number') {
       return this.searchByIndex(index);
-    } else {
-      return this.searchByName(index);
     }
   }
 
@@ -32,8 +44,14 @@ export class CardBuffer {
   private searchByIndex(index: number): Card {
     return this.cards[index];
   }
+}
 
-  private searchByName(index: string): Card {
-    return undefined;
+export class InPlayBuffer extends CardBuffer {
+  discard(card: Card) {
+    throw new Error('Cannot discard from InPlayBuffer');
+  }
+
+  drawTo(target: CardBuffer): Card {
+    throw new Error('Cannot draw to other buffer on InPlayBuffer');
   }
 }
