@@ -19,9 +19,7 @@ export class Card {
 
   public async onGain(player: Player): Promise<void> {};
 
-  public async onPlay(player: Player): Promise<void> {
-    player.turn.action += this._actionPoint;
-  };
+  public async onPlay(player: Player): Promise<void> {};
 
   get name(): string {
     return this._name;
