@@ -1,13 +1,10 @@
-import { use } from 'typescript-mix';
 import { Card, Land, Succession } from './card_models';
 import { singleton } from '../utils/singleton';
 import { Player } from './player';
-
-export interface ApprenticeMaid extends Succession {}
+import { Mixin } from 'ts-mixer';
 
 @singleton
-export class ApprenticeMaid extends Card {
-  @use(Succession) public this;
+export class ApprenticeMaid extends Mixin(Card, Succession) {
 
   constructor() {
     super('Apprentice Maid', 2, 0);
@@ -19,11 +16,8 @@ export class ApprenticeMaid extends Card {
   }
 }
 
-export interface FarmingVillage extends Land {}
-
 @singleton
-export class FarmingVillage extends Card {
-  @use(Land) public this;
+export class FarmingVillage extends Mixin(Card, Land) {
 
   constructor() {
     super('Farming Village', 1, 1);
@@ -36,16 +30,13 @@ export class FarmingVillage extends Card {
 
   async onPlay(player: Player): Promise<void> {
     await super.onPlay(player);
-    player.turn.gold += this._value;
+    player.turn.action += 1;
     return Promise.resolve();
   }
 }
 
-export interface ImperialCapital extends Succession, Land {}
-
 @singleton
-export class ImperialCapital extends Card {
-  @use(Succession, Land) public this;
+export class ImperialCapital extends Mixin(Card, Land, Succession) {
 
   constructor() {
     super('Imperial Capital', 11, 1);
@@ -59,7 +50,7 @@ export class ImperialCapital extends Card {
 
   async onPlay(player: Player): Promise<void> {
     await super.onPlay(player);
-    player.turn.gold += this._value;
+    player.turn.action += 1;
     return Promise.resolve();
   }
 }

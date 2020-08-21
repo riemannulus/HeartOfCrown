@@ -1,8 +1,8 @@
 import { Player } from './player';
 
-export abstract class Card {
+export class Card {
 
-  protected constructor(
+  constructor(
     private readonly _name: string,
     private readonly _cost: number,
     private readonly _actionPoint: number
@@ -19,9 +19,7 @@ export abstract class Card {
 
   public async onGain(player: Player): Promise<void> {};
 
-  public async onPlay(player: Player): Promise<void> {
-    player.turn.action += this._actionPoint;
-  };
+  public async onPlay(player: Player): Promise<void> {};
 
   get name(): string {
     return this._name;
@@ -62,6 +60,11 @@ export class Land {
   protected _value: number;
 
   constructor() {}
+
+  async onPlay(player: Player): Promise<void> {
+    player.turn.gold += this._value;
+    return Promise.resolve();
+  }
 
   get value(): number {
     return this._value;
