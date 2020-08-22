@@ -2,6 +2,7 @@ import { Turn } from './turn';
 import { Card, Succession } from './card_models';
 import { CardBuffer } from './card_struct';
 import { ApprenticeMaid, FarmingVillage } from './basic_card';
+import { hasMixin } from 'ts-mixer';
 
 const initDeck = [
   new ApprenticeMaid(),
@@ -46,7 +47,7 @@ export class Player {
 
   public async playEnroll(card: Card, from: CardBuffer = null) {
     if (from === null) from = this._hand;
-    await (<Succession>(<unknown>card)).onEnroll(this);
+    if (hasMixin(card, Succession)) await card.onEnroll(this);
   }
 
   get currentSuccessionPoint(): number {

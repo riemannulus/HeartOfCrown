@@ -54,10 +54,6 @@ describe('Basic Card', () => {
       const farmingVillage = new FarmingVillage();
       expect(farmingVillage.cost).toBe(1);
     });
-    test('value', () => {
-      const farmingVillage = new FarmingVillage();
-      expect(farmingVillage.value).toBe(1);
-    });
     test('type', () => {
       const farmingVillage = new FarmingVillage();
       const isLand = hasMixin(farmingVillage, Land);
@@ -86,10 +82,6 @@ describe('Basic Card', () => {
     test('cost', () => {
       const imperialCapital = new ImperialCapital();
       expect(imperialCapital.cost).toBe(11);
-    });
-    test('value', () => {
-      const imperialCapital = new ImperialCapital();
-      expect(imperialCapital.value).toBe(5);
     });
     test('succession point', () => {
       const imperialCapital = new ImperialCapital();
