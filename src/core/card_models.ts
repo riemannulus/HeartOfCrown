@@ -4,7 +4,6 @@ export class Card {
   constructor(
     private readonly _name: string,
     private readonly _cost: number,
-    private readonly _actionPoint: number
   ) {}
 
   /**
@@ -19,6 +18,8 @@ export class Card {
   public async onGain(player: Player): Promise<void> {}
 
   public async onPlay(player: Player): Promise<void> {}
+
+  public async onEnroll(player: Player): Promise<void> {};
 
   get name(): string {
     return this._name;
@@ -63,9 +64,5 @@ export class Land {
   async onPlay(player: Player): Promise<void> {
     player.turn.gold += this._value;
     return Promise.resolve();
-  }
-
-  get value(): number {
-    return this._value;
   }
 }
