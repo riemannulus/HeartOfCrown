@@ -1,6 +1,6 @@
 export class Turn {
-  private _gold: number
-  private _action: number
+  private _gold: number;
+  private _action: number;
 
   constructor() {
     this._gold = 0;
@@ -22,5 +22,4 @@ export class Turn {
   set action(value: number) {
     this._action = value;
   }
-
 }

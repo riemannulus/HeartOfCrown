@@ -1,7 +1,6 @@
 import { Player } from './player';
 
 export class Card {
-
   constructor(
     private readonly _name: string,
     private readonly _cost: number,
@@ -17,9 +16,9 @@ export class Card {
     return 5;
   }
 
-  public async onGain(player: Player): Promise<void> {};
+  public async onGain(player: Player): Promise<void> {}
 
-  public async onPlay(player: Player): Promise<void> {};
+  public async onPlay(player: Player): Promise<void> {}
 
   get name(): string {
     return this._name;

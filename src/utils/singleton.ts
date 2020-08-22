@@ -1,9 +1,9 @@
 export const SINGLETON_KEY = Symbol();
 
-export type Singleton<T extends new (...args: any[]) => any> = T & {
-  [SINGLETON_KEY]: T extends new (...args: any[]) => infer I ? I : never;
+export type Singleton<T extends new (...args: unknown[]) => unknown> = T & {
+  [SINGLETON_KEY]: T extends new (...args: unknown[]) => infer I ? I : never;
 };
-export const singleton = <T extends new (...args: any[]) => any>(
+export const singleton = <T extends new (...args: unknown[]) => unknown>(
   classTarget: T
 ) =>
   new Proxy(classTarget, {
